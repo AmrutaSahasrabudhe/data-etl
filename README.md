@@ -20,3 +20,12 @@ select count(*) from Stars;
 ```sql
 select MIN(Age), MAX(Age), AVG(Age) from Stars group by Age;
 ```
+
+## Sample duplicate values in a column
+```sql
+SELECT column_name, COUNT(*)
+FROM test_table
+GROUP BY column_name
+HAVING COUNT(*) > 1;
+```
+
