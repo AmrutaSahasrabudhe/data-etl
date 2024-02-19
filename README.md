@@ -29,3 +29,11 @@ GROUP BY column_name
 HAVING COUNT(*) > 1;
 ```
 
+## Delete duplicate in a table
+```sql
+DELETE FROM names a
+WHERE ROWID > (SELECT MIN(ROWID) FROM names b
+WHERE b.doc_name=a.doc_name
+AND b.ref_no=a.ref_no
+)
+```
